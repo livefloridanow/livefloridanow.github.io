@@ -26,6 +26,9 @@ export default function AboutSection() {
         {/* Content */}
         <div>
           <FadeIn>
+            <p className="text-[11px] uppercase tracking-[0.25em] text-muted mb-4 font-sans">
+              Work With Derek
+            </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground leading-[1.15] mb-10">
               Real estate feels different when you&apos;re working with someone
               who&apos;s actually involved
@@ -34,10 +37,10 @@ export default function AboutSection() {
 
           <FadeIn delay={0.15}>
             <p className="text-muted text-lg leading-relaxed mb-6">
-              Derek isn&apos;t the kind of agent who hands things off once
-              you&apos;re under contract. He&apos;s the one you&apos;ll hear
-              from directly&nbsp;&mdash; whether that&apos;s answering a
-              late-night question or helping you think through a decision.
+              Derek works directly with you from your first question through
+              closing day. You won&apos;t be passed off to a team or
+              assistant, just one agent who stays involved every step of the
+              way.
             </p>
           </FadeIn>
 
@@ -57,18 +60,20 @@ export default function AboutSection() {
                 &ldquo;
               </span>
               <p className="text-foreground font-serif italic text-xl leading-relaxed">
-                Central Florida isn&apos;t just where he works&nbsp;&mdash;
-                it&apos;s where he lives, so he knows the areas beyond what
-                you&apos;ll find in listings.
+                I got into real estate because I love this area and I love
+                helping people find their place in it. That hasn&apos;t changed.
               </p>
+              <footer className="mt-3 text-sm text-muted font-sans not-italic">
+                &mdash; Derek Beauchesne
+              </footer>
             </blockquote>
           </FadeIn>
 
           <FadeIn delay={0.35}>
             <p className="text-muted text-lg leading-relaxed mb-10">
-              He works one-on-one with every client from the first showing
-              through closing. No teams, no assistants&nbsp;&mdash; just a
-              straightforward, personal process.
+              As a Central Florida local, he brings real, day-to-day
+              knowledge of the area to every conversation, not just what
+              you&apos;ll find in listings.
             </p>
           </FadeIn>
 

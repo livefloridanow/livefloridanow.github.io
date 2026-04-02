@@ -23,17 +23,18 @@ export default function ContactSection() {
           {/* Contact info */}
           <FadeIn delay={0.2}>
             <div>
-              <p className="text-muted text-lg leading-relaxed mb-6">
-                Ready to take the next step? Reach out to Derek directly or
-                fill out the form and he&apos;ll get back to you within 24
-                hours.
+              <p className="text-muted leading-relaxed mb-6">
+                Have a question or want to talk through your options? Feel
+                free to reach out. I respond to every message personally,
+                usually within a few hours.
               </p>
 
               <p className="text-muted leading-relaxed mb-10">
-                Whether you have a quick question about a neighborhood or
-                want to start a serious home search, Derek is happy to talk
-                &mdash; no pressure, no obligation. He works on your
-                timeline and is available evenings and weekends.
+                Whether it&apos;s a quick question about a neighborhood or
+                you&apos;re ready to start your home search, I&apos;m happy
+                to help. No pressure, no obligation, just clear,
+                straightforward guidance on your timeline, including
+                evenings and weekends.
               </p>
 
               <div className="space-y-5 mb-10">
