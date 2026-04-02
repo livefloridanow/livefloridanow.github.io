@@ -30,12 +30,12 @@ export default function TestimonialsCarousel() {
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="testimonials__heading type-h2 text-foreground" style={{ marginBottom: 'var(--space-5)' }}>
+          <h2 className="testimonials__heading type-h2 text-foreground" style={{ marginBottom: 'var(--space-3)' }}>
             What Clients Are Saying
           </h2>
         </FadeIn>
 
-        <div className="testimonials__carousel relative min-h-[220px] flex items-center justify-center">
+        <div className="testimonials__carousel">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -43,9 +43,9 @@ export default function TestimonialsCarousel() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5, ease: 'easeInOut' }}
-              className="absolute inset-0 flex flex-col items-center justify-center"
+              className="flex flex-col items-center justify-center text-center"
             >
-              <blockquote className="testimonials__quote font-serif text-foreground italic" style={{ fontSize: 'var(--text-xl)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-4)' }}>
+              <blockquote className="testimonials__quote font-serif text-foreground italic" style={{ fontSize: 'var(--text-xl)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-3)' }}>
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
               <div className="testimonials__author type-label text-foreground">
@@ -58,7 +58,7 @@ export default function TestimonialsCarousel() {
           </AnimatePresence>
         </div>
 
-        <div className="testimonials__controls flex justify-center" style={{ gap: 10, marginTop: 'var(--space-6)' }}>
+        <div className="testimonials__controls flex justify-center" style={{ gap: 10, marginTop: 'var(--space-3)' }}>
           {testimonials.map((_, i) => (
             <button
               key={i}
