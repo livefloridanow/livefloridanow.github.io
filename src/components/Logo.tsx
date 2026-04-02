@@ -45,29 +45,8 @@ export default function Logo({ variant = 'dark', className }: LogoProps) {
         fontSize="13"
         letterSpacing="3"
         fill={primary}
-      >
-        LIVE
-      </text>
-      <text
-        x="96"
-        y="24"
-        fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="13"
-        fontWeight="700"
-        letterSpacing="3"
-        fill={primary}
-      >
-        FLORIDA
-      </text>
-      <text
-        x="186"
-        y="24"
-        fontFamily="system-ui, -apple-system, sans-serif"
-        fontSize="13"
-        letterSpacing="3"
-        fill={primary}
-      >
-        NOW
+        fontWeight="300"
+      > LIVE<tspan fontWeight="900">FLORIDA</tspan>NOW
       </text>
     </svg>
   );

@@ -7,31 +7,29 @@ import { motion } from 'framer-motion';
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-const headlineLines = ['Home Is Waiting.', 'Central Florida.'];
+const headlineLines = ['Your Next Move,', 'Guided Locally.'];
 
-const subheadlineWords =
-  'Local knowledge. Honest guidance. Real results.'.split(' ');
+// Grouped into phrases so they never break mid-phrase on mobile
+const subheadlinePhrases = ['Local knowledge.', 'Honest guidance.', 'Real results.'];
 
-/* ── Headline line — blur/spacing/color animation ── */
+/* ── Headline line — blur/color animation ── */
 function HeadlineLine({ text, delay }: { text: string; delay: number }) {
   return (
     <motion.span
       className="block"
+      style={{ letterSpacing: '-0.02em' }}
       initial={{
         opacity: 0,
-        letterSpacing: '0.15em',
         filter: 'blur(8px)',
         color: '#B8A98A',
       }}
       animate={{
         opacity: 1,
-        letterSpacing: '-0.02em',
         filter: 'blur(0px)',
         color: '#FAFAF8',
       }}
       transition={{
         opacity: { duration: 0.6, delay, ease: EASE },
-        letterSpacing: { duration: 1.2, delay, ease: EASE },
         filter: { duration: 1.0, delay, ease: EASE },
         color: { duration: 0.8, delay: delay + 0.6, ease: 'easeOut' },
       }}
@@ -44,7 +42,7 @@ function HeadlineLine({ text, delay }: { text: string; delay: number }) {
 export default function Hero() {
   return (
     <section className="relative w-screen h-screen overflow-hidden">
-      {/* Background image with Ken Burns slow zoom */}
+      {/* Background image with Ken Burns */}
       <motion.div
         className="absolute inset-0"
         initial={{ scale: 1.0 }}
@@ -62,9 +60,9 @@ export default function Hero() {
         />
       </motion.div>
 
-      {/* Film grain overlay — CSS only */}
+      {/* Film grain overlay */}
       <div
-        className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay opacity-[0.04]"
+        className="absolute inset-0 z-1 pointer-events-none mix-blend-overlay opacity-[0.04]"
         style={{
           backgroundImage:
             'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E")',
@@ -74,15 +72,15 @@ export default function Hero() {
 
       {/* Overlay layer 1 — cinematic vignette */}
       <div
-        className="absolute inset-0 z-[2]"
+        className="absolute inset-0 z-2"
         style={{
           background:
-            'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 35%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0.25) 100%)',
+            'linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.55) 35%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.55) 100%)',
         }}
       />
       {/* Overlay layer 2 — left-side feather */}
       <div
-        className="absolute inset-0 z-[2]"
+        className="absolute inset-0 z-2"
         style={{
           background:
             'linear-gradient(to right, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 60%)',
@@ -91,13 +89,10 @@ export default function Hero() {
 
       {/* Content — bottom-left anchored */}
       <div
-        className="absolute z-10"
+        className="absolute z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl"
         style={{
-          bottom: 'max(10%, 120px)',
-          left: 0,
           paddingLeft: 'clamp(1.5rem, 6vw, 7rem)',
-          paddingRight: 'clamp(1.5rem, 6vw, 40%)',
-          maxWidth: '1100px',
+          paddingRight: 'clamp(1.5rem, 6vw, 7rem)',
         }}
       >
         {/* Gold rule — animates first */}
@@ -114,24 +109,23 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
-          className="text-left font-sans mb-6 whitespace-nowrap"
+          className="text-left font-sans mb-3 whitespace-nowrap"
           style={{
-            fontSize: '0.65rem',
+            fontSize: 'clamp(0.55rem, 1.2vw, 0.65rem)',
             fontWeight: 400,
-            letterSpacing: '0.2em',
+            letterSpacing: '0.15em',
             textTransform: 'uppercase',
-            color: 'rgba(250, 250, 248, 0.78)',
+            color: 'rgba(250, 250, 248, 0.85)',
           }}
         >
-          Central Florida &nbsp;&middot;&nbsp; Licensed REALTOR&reg;
-          &nbsp;&middot;&nbsp; liveflnow.com
+          Serving Central Florida
         </motion.p>
 
-        {/* Headline — blur/spacing/color reveal */}
+        {/* Headline — blur/color reveal */}
         <h1
           className="font-serif font-light text-left"
           style={{
-            fontSize: 'clamp(2.75rem, 8vw, 7rem)',
+            fontSize: 'clamp(2.5rem, 8vw, 7rem)',
             lineHeight: 0.95,
           }}
         >
@@ -139,31 +133,31 @@ export default function Hero() {
           <HeadlineLine text={headlineLines[1]} delay={0.9} />
         </h1>
 
-        {/* Subtext — word-by-word fade */}
+        {/* Subtext — phrase-by-phrase fade */}
         <p
           className="text-left font-sans font-light mt-6"
           style={{
-            fontSize: 'clamp(0.875rem, 1.5vw, 1.125rem)',
-            letterSpacing: '0.12em',
+            fontSize: 'clamp(0.75rem, 1.5vw, 1.125rem)',
+            letterSpacing: '0.1em',
             textTransform: 'uppercase',
-            color: 'rgba(250, 250, 248, 0.65)',
+            color: 'rgba(250, 250, 248, 0.90)',
           }}
         >
-          {subheadlineWords.map((word, i) => (
+          {subheadlinePhrases.map((phrase, i) => (
             <span key={i}>
               <motion.span
-                className="inline-block"
+                className="inline-block whitespace-nowrap"
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.8,
-                  delay: 1.6 + i * 0.08,
+                  delay: 1.6 + i * 0.15,
                   ease: EASE,
                 }}
               >
-                {word}
+                {phrase}
               </motion.span>
-              {i < subheadlineWords.length - 1 && (
+              {i < subheadlinePhrases.length - 1 && (
                 <span className="inline-block">&nbsp;</span>
               )}
             </span>
@@ -174,8 +168,8 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.3, ease: EASE }}
-          className="flex flex-col md:flex-row items-start gap-4 mt-10"
+          transition={{ duration: 0.8, delay: 1.6, ease: EASE }}
+          className="flex flex-col md:flex-row items-start gap-4 mt-6 w-fit"
         >
           <Link
             href="/properties"
@@ -190,8 +184,6 @@ export default function Hero() {
               padding: '0.875rem 2rem',
               borderRadius: '4px',
               width: 'fit-content',
-              minWidth: 160,
-              maxWidth: 280,
             }}
             onMouseEnter={(e) =>
               (e.currentTarget.style.background = 'rgba(184,169,138,0.85)')
@@ -214,17 +206,15 @@ export default function Hero() {
               textTransform: 'uppercase',
               padding: '0.875rem 2rem',
               borderRadius: '4px',
-              border: '1px solid rgba(250,250,248,0.45)',
+              border: '1px solid rgba(250,250,248,0.70)',
               width: 'fit-content',
-              minWidth: 160,
-              maxWidth: 280,
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = 'rgba(250,250,248,0.9)';
               e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(250,250,248,0.45)';
+              e.currentTarget.style.borderColor = 'rgba(250,250,248,0.70)';
               e.currentTarget.style.background = 'transparent';
             }}
           >
