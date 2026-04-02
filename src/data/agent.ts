@@ -26,7 +26,7 @@ export const agent = {
   ],
   // TODO: Add broker name and license numbers once confirmed
   brokerDisclosure:
-    'Derek Beauchesne is a licensed real estate sales associate in the State of Florida. [BROKER NAME \u2014 TODO] is a licensed real estate broker. All information is deemed reliable but not guaranteed. Equal Housing Opportunity.',
+    'Derek Beauchesne is a licensed real estate sales associate in the State of Florida. Brokered by a licensed Florida real estate broker. All information is deemed reliable but not guaranteed. Equal Housing Opportunity.',
   stats: {
     homesSold: 100, // TODO: Replace with actual number
     yearsExperience: 8, // TODO: Replace with actual number

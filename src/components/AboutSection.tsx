@@ -19,7 +19,6 @@ export default function AboutSection() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            {/* Warm tint overlay */}
             <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
           </div>
         </FadeIn>
@@ -43,12 +42,24 @@ export default function AboutSection() {
           </FadeIn>
 
           <FadeIn delay={0.25}>
-            {/* Pullquote */}
-            <blockquote className="border-l-2 border-accent pl-6 my-10">
+            <blockquote className="relative my-10 pl-8 py-4">
+              {/* Gold accent bar */}
+              <div
+                className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full"
+                style={{ background: 'linear-gradient(to bottom, #B8A98A, #B8A98A00)' }}
+              />
+              {/* Gold open-quote mark */}
+              <span
+                className="absolute -top-2 left-4 text-5xl font-serif leading-none select-none"
+                style={{ color: 'rgba(184, 169, 138, 0.35)' }}
+                aria-hidden="true"
+              >
+                &ldquo;
+              </span>
               <p className="text-foreground font-serif italic text-xl leading-relaxed">
-                &ldquo;Central Florida isn&apos;t just where he works&nbsp;&mdash;
+                Central Florida isn&apos;t just where he works&nbsp;&mdash;
                 it&apos;s where he lives, so he knows the areas beyond what
-                you&apos;ll find in listings.&rdquo;
+                you&apos;ll find in listings.
               </p>
             </blockquote>
           </FadeIn>

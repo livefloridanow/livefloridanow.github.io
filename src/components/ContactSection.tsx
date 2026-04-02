@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, ExternalLink } from 'lucide-react';
+import { Phone, Mail, ExternalLink, Clock, MessageCircle } from 'lucide-react';
 import { agent } from '@/data/agent';
 import FadeIn from './FadeIn';
 
@@ -23,13 +23,20 @@ export default function ContactSection() {
           {/* Contact info */}
           <FadeIn delay={0.2}>
             <div>
-              <p className="text-muted text-lg leading-relaxed mb-10">
+              <p className="text-muted text-lg leading-relaxed mb-6">
                 Ready to take the next step? Reach out to Derek directly or
                 fill out the form and he&apos;ll get back to you within 24
                 hours.
               </p>
 
-              <div className="space-y-5">
+              <p className="text-muted leading-relaxed mb-10">
+                Whether you have a quick question about a neighborhood or
+                want to start a serious home search, Derek is happy to talk
+                &mdash; no pressure, no obligation. He works on your
+                timeline and is available evenings and weekends.
+              </p>
+
+              <div className="space-y-5 mb-10">
                 <a
                   href={agent.phoneTel}
                   className="flex items-center gap-3 text-foreground hover:text-accent-text transition-colors"
@@ -54,6 +61,17 @@ export default function ContactSection() {
                   facebook.com/DBsells
                 </a>
               </div>
+
+              <div className="border-t border-foreground/10 pt-8 space-y-4">
+                <div className="flex items-start gap-3 text-sm text-muted">
+                  <Clock size={16} className="text-accent mt-0.5 shrink-0" />
+                  <span>Typical response time: under 2 hours during business hours</span>
+                </div>
+                <div className="flex items-start gap-3 text-sm text-muted">
+                  <MessageCircle size={16} className="text-accent mt-0.5 shrink-0" />
+                  <span>Call, text, or email &mdash; whatever works best for you</span>
+                </div>
+              </div>
             </div>
           </FadeIn>
 
@@ -69,61 +87,64 @@ export default function ContactSection() {
             >
               <div>
                 <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-foreground mb-1.5"
+                  htmlFor="contact-name"
+                  className="block text-xs uppercase tracking-[0.15em] font-medium text-muted mb-2"
                 >
                   Name
                 </label>
                 <input
-                  id="name"
+                  id="contact-name"
                   name="name"
                   type="text"
                   required
-                  className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
+                  autoComplete="name"
+                  className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
                 />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-1.5"
+                    htmlFor="contact-email"
+                    className="block text-xs uppercase tracking-[0.15em] font-medium text-muted mb-2"
                   >
                     Email
                   </label>
                   <input
-                    id="email"
+                    id="contact-email"
                     name="email"
                     type="email"
                     required
-                    className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
+                    autoComplete="email"
+                    className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
                   />
                 </div>
                 <div>
                   <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-foreground mb-1.5"
+                    htmlFor="contact-phone"
+                    className="block text-xs uppercase tracking-[0.15em] font-medium text-muted mb-2"
                   >
                     Phone
                   </label>
                   <input
-                    id="phone"
+                    id="contact-phone"
                     name="phone"
                     type="tel"
-                    className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
+                    autoComplete="tel"
+                    className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
                   />
                 </div>
               </div>
               <div>
                 <label
-                  htmlFor="interest"
-                  className="block text-sm font-medium text-foreground mb-1.5"
+                  htmlFor="contact-interest"
+                  className="block text-xs uppercase tracking-[0.15em] font-medium text-muted mb-2"
                 >
                   I&apos;m interested in...
                 </label>
                 <select
-                  id="interest"
+                  id="contact-interest"
                   name="interest"
-                  className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
+                  className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow"
                 >
                   <option value="buying">Buying a Home</option>
                   <option value="selling">Selling a Home</option>
@@ -134,16 +155,16 @@ export default function ContactSection() {
               </div>
               <div>
                 <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-1.5"
+                  htmlFor="contact-message"
+                  className="block text-xs uppercase tracking-[0.15em] font-medium text-muted mb-2"
                 >
                   Message
                 </label>
                 <textarea
-                  id="message"
+                  id="contact-message"
                   name="message"
                   rows={4}
-                  className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface focus:outline-none focus:ring-2 focus:ring-accent/50 resize-none transition-shadow"
+                  className="w-full px-4 py-3.5 rounded-lg border border-foreground/10 bg-surface text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 resize-none transition-shadow"
                 />
               </div>
               <button
