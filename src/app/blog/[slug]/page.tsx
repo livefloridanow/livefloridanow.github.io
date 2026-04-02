@@ -5,13 +5,15 @@ import ComingSoon from '@/components/ComingSoon';
 // TODO: Implement generateStaticParams() with post slugs
 // TODO: Implement generateMetadata() per post
 
+export const dynamicParams = false;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-  // TODO: Return post slugs when blog content is added
-  return [];
+  // TODO: Replace with real post slugs when blog content is added
+  return [{ slug: 'coming-soon' }];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
