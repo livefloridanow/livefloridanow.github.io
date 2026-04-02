@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://liveflnow.com
+
+# Sitemaps
+Sitemap: https://liveflnow.com/sitemap.xml
