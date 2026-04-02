@@ -21,7 +21,7 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center font-medium transition-colors rounded-full';
+    'inline-flex items-center justify-center font-medium transition-colors rounded-sm';
   const variants = {
     primary: 'bg-accent text-white hover:bg-accent-dark',
     secondary: 'bg-dark text-white hover:bg-foreground',

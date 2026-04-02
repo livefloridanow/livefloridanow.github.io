@@ -100,7 +100,7 @@ function RadialCircle({
 function MenuContent({ onClose }: { onClose: () => void }) {
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.35, delay: 0.6 } },
+    visible: { opacity: 1, transition: { duration: 0.35, delay: 0.35 } },
     exit: { opacity: 0, transition: { duration: 0.15 } },
   };
 
@@ -111,7 +111,7 @@ function MenuContent({ onClose }: { onClose: () => void }) {
       y: 0,
       transition: {
         duration: 0.35,
-        delay: 0.6 + i * 0.07,
+        delay: 0.35 + i * 0.07,
         ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
       },
     }),
@@ -120,7 +120,7 @@ function MenuContent({ onClose }: { onClose: () => void }) {
 
   const footerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { delay: 1.1, duration: 0.35 } },
+    visible: { opacity: 1, transition: { delay: 0.85, duration: 0.35 } },
     exit: { opacity: 0, transition: { duration: 0.1 } },
   };
 
@@ -237,7 +237,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="btn-shimmer inline-flex items-center justify-center px-5 py-2 text-[13px] uppercase tracking-[0.1em] font-medium rounded-full bg-accent text-white hover:bg-accent-dark transition-colors"
+                className="btn-shimmer inline-flex items-center justify-center px-5 py-2 text-[13px] uppercase tracking-[0.1em] font-medium rounded-sm bg-accent text-white hover:bg-accent-dark transition-colors"
               >
                 Let&apos;s Connect
               </Link>

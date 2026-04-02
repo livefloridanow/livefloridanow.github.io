@@ -148,7 +148,7 @@ export default function ContactSection() {
               </div>
               <button
                 type="submit"
-                className="btn-shimmer w-full inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.12em] font-medium rounded-full bg-accent text-white hover:bg-accent-dark transition-colors"
+                className="btn-shimmer inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.12em] font-medium rounded-sm bg-accent text-white hover:bg-accent-dark transition-colors"
               >
                 Send Message
               </button>

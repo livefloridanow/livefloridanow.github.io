@@ -34,7 +34,7 @@ export default function ListingsGrid() {
         <FadeIn className="text-center mt-16">
           <Link
             href="/properties"
-            className="inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.12em] font-medium rounded-full bg-dark text-white hover:bg-foreground transition-colors"
+            className="inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.12em] font-medium rounded-sm bg-dark text-white hover:bg-foreground transition-colors"
           >
             View All Properties
           </Link>
