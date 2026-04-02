@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { agent } from '@/data/agent';
+import Container from './ui/Container';
 
 interface StatItemProps {
   value: number;
@@ -18,7 +19,6 @@ function StatItem({ value, startValue, suffix, label }: StatItemProps) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
@@ -26,7 +26,6 @@ function StatItem({ value, startValue, suffix, label }: StatItemProps) {
           const duration = 2000;
           const start = performance.now();
           const range = value - startValue;
-
           const animate = (now: number) => {
             const elapsed = now - start;
             const progress = Math.min(elapsed / duration, 1);
@@ -34,24 +33,21 @@ function StatItem({ value, startValue, suffix, label }: StatItemProps) {
             setCount(Math.round(startValue + eased * range));
             if (progress < 1) requestAnimationFrame(animate);
           };
-
           requestAnimationFrame(animate);
         }
       },
       { threshold: 0.5 }
     );
-
     observer.observe(el);
     return () => observer.disconnect();
   }, [value, startValue]);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
-        {count}
-        {suffix}
+    <div ref={ref} className="stats-bar__item text-center">
+      <div className="stats-bar__number type-h2 text-white" style={{ fontWeight: 'var(--weight-semibold)' }}>
+        {count}{suffix}
       </div>
-      <div className="text-[11px] text-white/70 mt-2 uppercase tracking-[0.2em] font-sans">
+      <div className="stats-bar__label type-label text-white/70" style={{ marginTop: 'var(--space-1)' }}>
         {label}
       </div>
     </div>
@@ -62,21 +58,20 @@ export default function StatsBar() {
   const { stats } = agent;
 
   return (
-    <section className="relative bg-dark py-20 grain-overlay">
-      <div className="relative z-10 max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10">
+    <section className="stats-bar section--compact relative bg-dark grain-overlay">
+      <Container className="relative z-10 grid grid-cols-2 md:grid-cols-4" style={{ gap: 'var(--space-5)' }}>
         <StatItem value={stats.homesSold} startValue={85} suffix="+" label="Homes Sold" />
         <StatItem value={stats.yearsExperience} startValue={6} suffix="+" label="Years Experience" />
         <StatItem value={stats.fiveStarReviews} startValue={42} suffix="+" label="5-Star Reviews" />
-        {/* Areas Served — static, no count-up */}
-        <div className="text-center">
-          <div className="text-3xl md:text-4xl font-serif font-bold text-white tracking-tight">
+        <div className="stats-bar__item text-center">
+          <div className="stats-bar__number type-h2 text-white" style={{ fontWeight: 'var(--weight-semibold)' }}>
             {stats.areasServed}
           </div>
-          <div className="text-[11px] text-white/70 mt-2 uppercase tracking-[0.2em] font-sans">
+          <div className="stats-bar__label type-label text-white/70" style={{ marginTop: 'var(--space-1)' }}>
             Areas Served
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

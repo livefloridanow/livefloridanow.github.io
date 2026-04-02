@@ -1,12 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { ReactNode } from 'react';
+import type { CSSProperties, ReactNode } from 'react';
 
 interface FadeInProps {
   children: ReactNode;
   delay?: number;
   className?: string;
+  style?: CSSProperties;
   as?: 'div' | 'section' | 'span' | 'p' | 'h1' | 'h2' | 'h3';
 }
 
@@ -14,6 +15,7 @@ export default function FadeIn({
   children,
   delay = 0,
   className,
+  style,
   as = 'div',
 }: FadeInProps) {
   const Component = motion.create(as);
@@ -25,6 +27,7 @@ export default function FadeIn({
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay, ease: [0.25, 0.1, 0.25, 1] }}
       className={className}
+      style={style}
     >
       {children}
     </Component>
@@ -34,12 +37,14 @@ export default function FadeIn({
 interface StaggerChildrenProps {
   children: ReactNode;
   className?: string;
+  style?: CSSProperties;
   stagger?: number;
 }
 
 export function StaggerChildren({
   children,
   className,
+  style,
   stagger = 0.1,
 }: StaggerChildrenProps) {
   return (
@@ -53,6 +58,7 @@ export function StaggerChildren({
         },
       }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>

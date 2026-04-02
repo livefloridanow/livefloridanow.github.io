@@ -5,25 +5,26 @@ import { listings } from '@/data/listings';
 import ListingCard from './ListingCard';
 import FadeIn from './FadeIn';
 import { StaggerChildren, StaggerItem } from './FadeIn';
+import Container from './ui/Container';
 
 export default function ListingsGrid() {
   const featured = listings.filter((l) => l.featured).slice(0, 6);
 
   return (
-    <section className="py-28 lg:py-36 bg-surface">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="listings section bg-surface">
+      <Container>
         <FadeIn>
-          <p className="text-center text-[11px] uppercase tracking-[0.25em] text-muted mb-4 font-sans">
+          <p className="listings__label type-label text-muted text-center" style={{ marginBottom: 'var(--space-2)' }}>
             Featured Listings
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground text-center mb-16">
+          <h2 className="listings__heading type-h2 text-foreground text-center" style={{ marginBottom: 'var(--space-5)' }}>
             Central Florida Properties
           </h2>
         </FadeIn>
 
-        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <StaggerChildren className="listings__grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3" style={{ gap: 'var(--space-3)' }}>
           {featured.map((listing) => (
             <StaggerItem key={listing.slug}>
               <ListingCard listing={listing} />
@@ -31,15 +32,20 @@ export default function ListingsGrid() {
           ))}
         </StaggerChildren>
 
-        <FadeIn className="text-center mt-16">
+        <FadeIn className="listings__cta text-center" style={{ marginTop: 'var(--space-5)' }}>
           <Link
             href="/properties"
-            className="inline-flex items-center justify-center px-8 py-4 text-sm uppercase tracking-[0.12em] font-medium rounded-sm bg-dark text-white hover:bg-foreground transition-colors"
+            className="type-label inline-flex items-center justify-center bg-dark text-white hover:bg-foreground transition-colors"
+            style={{
+              padding: '0.875rem 2rem',
+              borderRadius: 'var(--radius-sm)',
+              fontWeight: 'var(--weight-medium)',
+            }}
           >
             View All Properties
           </Link>
         </FadeIn>
-      </div>
+      </Container>
     </section>
   );
 }

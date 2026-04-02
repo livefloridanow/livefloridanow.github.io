@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { testimonials } from '@/data/testimonials';
 import FadeIn from './FadeIn';
+import Container from './ui/Container';
 
 export default function TestimonialsCarousel() {
   const [current, setCurrent] = useState(0);
@@ -13,7 +14,6 @@ export default function TestimonialsCarousel() {
     []
   );
 
-  // Auto-advance every 6 seconds
   useEffect(() => {
     const timer = setInterval(next, 6000);
     return () => clearInterval(timer);
@@ -22,20 +22,20 @@ export default function TestimonialsCarousel() {
   const testimonial = testimonials[current];
 
   return (
-    <section className="py-28 lg:py-36 bg-surface">
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section className="testimonials section bg-surface">
+      <Container className="max-w-3xl text-center">
         <FadeIn>
-          <p className="text-[11px] uppercase tracking-[0.25em] text-muted mb-4 font-sans">
+          <p className="testimonials__label type-label text-muted" style={{ marginBottom: 'var(--space-2)' }}>
             Testimonials
           </p>
         </FadeIn>
         <FadeIn delay={0.1}>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground mb-16">
+          <h2 className="testimonials__heading type-h2 text-foreground" style={{ marginBottom: 'var(--space-5)' }}>
             What Clients Are Saying
           </h2>
         </FadeIn>
 
-        <div className="relative min-h-[220px] flex items-center justify-center">
+        <div className="testimonials__carousel relative min-h-[220px] flex items-center justify-center">
           <AnimatePresence mode="wait">
             <motion.div
               key={current}
@@ -45,36 +45,32 @@ export default function TestimonialsCarousel() {
               transition={{ duration: 0.5, ease: 'easeInOut' }}
               className="absolute inset-0 flex flex-col items-center justify-center"
             >
-              <blockquote className="text-xl md:text-2xl font-serif text-foreground leading-relaxed italic mb-8">
+              <blockquote className="testimonials__quote font-serif text-foreground italic" style={{ fontSize: 'var(--text-xl)', lineHeight: 'var(--leading-relaxed)', marginBottom: 'var(--space-4)' }}>
                 &ldquo;{testimonial.text}&rdquo;
               </blockquote>
-
-              <div className="text-foreground font-semibold text-sm uppercase tracking-wider">
+              <div className="testimonials__author type-label text-foreground">
                 {testimonial.name}
               </div>
-              <div className="text-xs text-muted mt-1 tracking-wide">
+              <div className="type-caption" style={{ marginTop: 'var(--space-1)' }}>
                 {testimonial.location}
               </div>
             </motion.div>
           </AnimatePresence>
         </div>
 
-        {/* Minimal dot indicators */}
-        <div className="flex justify-center gap-2.5 mt-12">
+        <div className="testimonials__controls flex justify-center" style={{ gap: 10, marginTop: 'var(--space-6)' }}>
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
               aria-label={`Go to testimonial ${i + 1}`}
               className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                i === current
-                  ? 'bg-foreground scale-125'
-                  : 'bg-foreground/20 hover:bg-foreground/40'
+                i === current ? 'bg-foreground scale-125' : 'bg-foreground/20 hover:bg-foreground/40'
               }`}
             />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

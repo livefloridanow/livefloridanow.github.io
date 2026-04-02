@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Logo from './Logo';
 import { agent } from '@/data/agent';
+import Container from './ui/Container';
 
 const navLinks = [
   { href: '/properties', label: 'Properties' },
@@ -14,21 +15,21 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark">
-      <div className="max-w-7xl mx-auto px-6 py-14">
+    <footer className="footer bg-dark section--compact">
+      <Container>
         {/* Top row — logo + nav */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-10">
-          <Link href="/" aria-label="LiveFloridaNow Home">
+        <div className="flex flex-col md:flex-row items-center justify-between" style={{ gap: 'var(--space-4)', marginBottom: 'var(--space-5)' }}>
+          <Link href="/" className="footer__logo" aria-label="LiveFloridaNow Home">
             <Logo variant="light" className="h-7 w-auto" />
           </Link>
 
-          <nav aria-label="Footer navigation">
-            <ul className="flex flex-wrap justify-center gap-x-8 gap-y-2">
+          <nav className="footer__nav" aria-label="Footer navigation">
+            <ul className="flex flex-wrap justify-center" style={{ columnGap: 'var(--space-4)', rowGap: 'var(--space-1)' }}>
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[13px] text-white/70 hover:text-white transition-colors tracking-wide"
+                    className="footer__nav-link type-body-sm text-white/70 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -39,16 +40,15 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 pt-8">
-          <p className="text-[11px] text-white/40 leading-relaxed max-w-3xl">
+        <div className="border-t border-white/10" style={{ paddingTop: 'var(--space-4)' }}>
+          <p className="footer__disclosure type-caption text-white/40 max-w-3xl" style={{ lineHeight: 'var(--leading-relaxed)' }}>
             {agent.brokerDisclosure}
           </p>
-          {/* TODO: Add Equal Housing Opportunity logo/icon */}
-          <p className="text-[11px] text-white/40 mt-4">
+          <p className="footer__copyright type-caption text-white/40" style={{ marginTop: 'var(--space-2)' }}>
             &copy; {year} LiveFloridaNow. All rights reserved.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

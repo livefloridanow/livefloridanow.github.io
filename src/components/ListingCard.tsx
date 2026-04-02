@@ -9,9 +9,12 @@ interface ListingCardProps {
 
 export default function ListingCard({ listing }: ListingCardProps) {
   return (
-    <Link href={`/properties/${listing.slug}`} className="block group">
-      <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out">
-        <div className="relative aspect-[4/3] overflow-hidden">
+    <Link href={`/properties/${listing.slug}`} className="listing-card block group">
+      <div
+        className="bg-white overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out"
+        style={{ borderRadius: 'var(--radius-lg)' }}
+      >
+        <div className="listing-card__image relative aspect-[4/3] overflow-hidden">
           <Image
             src={listing.images[0]}
             alt={`Home for sale at ${listing.address}, ${listing.city}, Florida`}
@@ -21,14 +24,14 @@ export default function ListingCard({ listing }: ListingCardProps) {
           />
         </div>
 
-        <div className="p-5">
-          <div className="text-2xl font-serif font-semibold text-foreground">
+        <div className="listing-card__body" style={{ padding: 'var(--space-3)' }}>
+          <div className="listing-card__price type-h4 text-foreground" style={{ fontWeight: 'var(--weight-semibold)' }}>
             {formatPrice(listing.price)}
           </div>
-          <p className="text-sm text-muted mt-1">
+          <p className="listing-card__address type-body-sm text-muted" style={{ marginTop: 'var(--space-1)' }}>
             {listing.address}, {listing.city}, FL
           </p>
-          <p className="mt-3 text-xs text-muted tracking-wide">
+          <p className="listing-card__stats type-caption" style={{ marginTop: 'var(--space-1)' }}>
             {listing.beds} bd &middot; {listing.baths} ba &middot;{' '}
             {listing.sqft.toLocaleString()} sf
           </p>
