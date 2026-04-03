@@ -39,10 +39,18 @@
   }
 }
 
-/* Nav link hit area — generous padding for easier hover/click */
+/* Nav link hit area — generous padding for easier hover/click.
+   Padding is on the <li>, underline stays on the child <a>. */
 .nav-link {
-  padding: 0.875rem 0.75rem 0.5rem;
-  margin: -0.875rem -0.75rem -0.5rem;
+  padding: 1rem 0.75rem;
+  margin: -1rem -0.75rem;
+  cursor: pointer;
+}
+.nav-link:hover .hover-underline::after {
+  transform: scaleX(1);
+}
+.nav-link:hover .hover-underline {
+  color: white;
 }
 
 /* Hover lift — card hover scale effect */
