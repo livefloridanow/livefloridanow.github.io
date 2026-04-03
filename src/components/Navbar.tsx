@@ -228,7 +228,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-white/90 hover:text-white text-[13px] uppercase tracking-[0.12em] font-medium transition-colors"
+                  className="type-label text-white/90 hover:text-white transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -237,7 +237,8 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="btn-shimmer inline-flex items-center justify-center px-5 py-2 text-[13px] uppercase tracking-[0.1em] font-medium rounded-sm bg-accent text-white hover:bg-accent-dark transition-colors"
+                className="btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors"
+                style={{ padding: '0.5rem 1.25rem', borderRadius: 'var(--radius-sm)', fontWeight: 'var(--weight-medium)' }}
               >
                 Let&apos;s Connect
               </Link>

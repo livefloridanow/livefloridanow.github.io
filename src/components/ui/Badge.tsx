@@ -20,10 +20,14 @@ export default function Badge({
   return (
     <span
       className={cn(
-        'inline-block px-3 py-1 rounded-full text-xs font-medium',
+        'type-label inline-block',
         variants[variant],
         className
       )}
+      style={{
+        padding: '4px 12px',
+        borderRadius: 'var(--radius-full)',
+      }}
     >
       {children}
     </span>

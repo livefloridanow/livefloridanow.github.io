@@ -27,8 +27,8 @@ export default function CTABanner() {
         <FadeIn delay={0.15}>
           <a
             href={agent.phoneTel}
-            className="cta-banner__phone font-serif font-bold text-accent hover:text-accent-dark transition-colors block"
-            style={{ fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-5)' }}
+            className="cta-banner__phone font-serif text-accent hover:text-accent-dark transition-colors block"
+            style={{ fontSize: 'var(--text-4xl)', marginBottom: 'var(--space-5)', fontWeight: 'var(--weight-semibold)' }}
           >
             {agent.phone}
           </a>

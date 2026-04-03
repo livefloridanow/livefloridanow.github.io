@@ -2,34 +2,45 @@ import Link from 'next/link';
 import { Phone, Mail } from 'lucide-react';
 import Logo from './Logo';
 import Button from './ui/Button';
+import Container from './ui/Container';
 import { agent } from '@/data/agent';
 
 export default function ComingSoon() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh] px-6 py-20 text-center">
-      <Link href="/" aria-label="LiveFloridaNow Home">
-        <Logo variant="dark" className="h-10 w-auto mb-12" />
-      </Link>
+    <Container
+      className="flex flex-col items-center justify-center text-center"
+      style={{ minHeight: '80vh', paddingTop: 'var(--space-8)', paddingBottom: 'var(--space-8)' }}
+    >
+      <div style={{ marginBottom: 'var(--space-6)' }}>
+        <Link href="/" aria-label="LiveFloridaNow Home">
+          <Logo variant="dark" className="h-10 w-auto" />
+        </Link>
+      </div>
 
-      <h1 className="text-4xl md:text-5xl font-serif font-semibold text-foreground mb-4">
+      <h1 className="type-h1 text-foreground" style={{ marginBottom: 'var(--space-2)' }}>
         Coming Soon
       </h1>
-      <p className="text-muted text-lg max-w-md mb-10 leading-relaxed">
+      <p className="type-body text-muted" style={{ maxWidth: 420, marginBottom: 'var(--space-5)' }}>
         We&apos;re working on something great. In the meantime, reach out to
         Derek directly.
       </p>
 
-      <div className="flex flex-col items-center gap-3 mb-10">
+      <div
+        className="flex flex-col items-center"
+        style={{ gap: 'var(--space-1)', marginBottom: 'var(--space-5)' }}
+      >
         <a
           href={agent.phoneTel}
-          className="flex items-center gap-2 text-foreground hover:text-accent-text transition-colors"
+          className="flex items-center text-foreground hover:text-accent-text transition-colors"
+          style={{ gap: 'var(--space-1)' }}
         >
           <Phone size={18} className="text-accent" />
           {agent.phone}
         </a>
         <a
           href={`mailto:${agent.email}`}
-          className="flex items-center gap-2 text-foreground hover:text-accent-text transition-colors"
+          className="flex items-center text-foreground hover:text-accent-text transition-colors"
+          style={{ gap: 'var(--space-1)' }}
         >
           <Mail size={18} className="text-accent" />
           {agent.email}
@@ -39,6 +50,6 @@ export default function ComingSoon() {
       <Button href="/" variant="primary" size="lg">
         Back to Home
       </Button>
-    </div>
+    </Container>
   );
 }

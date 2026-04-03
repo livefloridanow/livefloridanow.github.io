@@ -46,7 +46,7 @@ export default function Logo({ variant = 'dark', className }: LogoProps) {
         letterSpacing="3"
         fill={primary}
         fontWeight="300"
-      > LIVE<tspan fontWeight="900">FLORIDA</tspan>NOW
+      > LIVE<tspan fontWeight="600">FLORIDA</tspan>NOW
       </text>
     </svg>
   );

@@ -9,9 +9,10 @@ export default function Card({ children, className }: CardProps) {
   return (
     <div
       className={cn(
-        'bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow',
+        'bg-white overflow-hidden shadow-sm hover:shadow-md transition-shadow',
         className
       )}
+      style={{ borderRadius: 'var(--radius-lg)' }}
     >
       {children}
     </div>

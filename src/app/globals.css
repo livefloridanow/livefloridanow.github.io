@@ -77,8 +77,8 @@
   --radius-full: 9999px;
 
   /* Section Spacing */
-  --section-py-desktop: var(--space-8);
-  --section-py-mobile:  var(--space-6);
+  --section-py-desktop: 60px;
+  --section-py-mobile:  40px;
 
   /* Container */
   --container-max: 1280px;
