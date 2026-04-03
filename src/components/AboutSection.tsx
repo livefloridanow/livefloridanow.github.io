@@ -77,9 +77,11 @@ export default function AboutSection() {
           <FadeIn delay={0.45}>
             <Link
               href="/about"
-              className="about__cta type-label text-accent-text hover:text-foreground transition-colors"
+              className="about__cta type-label text-accent-text hover:text-foreground transition-colors inline-flex items-center"
+              style={{ gap: 'var(--space-1)' }}
             >
-              Get to Know Derek &rarr;
+              Get to Know Derek
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg>
             </Link>
           </FadeIn>
         </div>

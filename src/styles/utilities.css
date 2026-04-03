@@ -32,13 +32,6 @@
   transform: scaleX(1);
 }
 
-/* iOS fallback — background-attachment: fixed breaks on mobile Safari */
-@supports (-webkit-touch-callout: none) {
-  .cta-banner {
-    background-attachment: scroll !important;
-  }
-}
-
 /* Nav link hit area — generous padding for easier hover/click.
    Padding is on the <li>, underline stays on the child <a>. */
 .nav-link {
