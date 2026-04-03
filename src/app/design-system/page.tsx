@@ -204,10 +204,14 @@ export default function DesignSystemPage() {
           <h2 className="type-h2 text-foreground" style={{ marginBottom: 'var(--space-5)' }}>
             Buttons
           </h2>
-          <div className="flex flex-wrap items-center" style={{ gap: 'var(--space-2)' }}>
+          <div
+            className="flex flex-wrap items-center"
+            style={{ gap: 'var(--space-2)', background: '#8A8580', padding: 'var(--space-4)', borderRadius: 'var(--radius-md)' }}
+          >
             <Button variant="primary" size="md">Primary</Button>
             <Button variant="secondary" size="md">Secondary</Button>
-            <Button variant="outline" size="md">Outline</Button>
+            <Button variant="outline" size="md">Outline Dark</Button>
+            <Button variant="outline-light" size="md">Outline Light</Button>
           </div>
         </section>
 

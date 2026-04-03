@@ -1,0 +1,48 @@
+/* ═══════════════════════════════════════════
+   LAYOUT — Section & Container
+   ═══════════════════════════════════════════ */
+
+@layer components {
+  .section {
+    padding-top: var(--section-py-mobile);
+    padding-bottom: var(--section-py-mobile);
+  }
+  @media (min-width: 1024px) {
+    .section {
+      padding-top: var(--section-py-desktop);
+      padding-bottom: var(--section-py-desktop);
+    }
+  }
+
+  .section--compact {
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+  @media (min-width: 1024px) {
+    .section--compact {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-px-mobile);
+    padding-right: var(--container-px-mobile);
+  }
+  @media (min-width: 768px) {
+    .container {
+      padding-left: var(--container-px-tablet);
+      padding-right: var(--container-px-tablet);
+    }
+  }
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: var(--container-px-desktop);
+      padding-right: var(--container-px-desktop);
+    }
+  }
+}
