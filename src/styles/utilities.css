@@ -12,6 +12,39 @@
   pointer-events: none;
 }
 
+/* Gold underline slide — nav link hover effect */
+.hover-underline {
+  position: relative;
+}
+.hover-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.hover-underline:hover::after {
+  transform: scaleX(1);
+}
+
+/* iOS fallback — background-attachment: fixed breaks on mobile Safari */
+@supports (-webkit-touch-callout: none) {
+  .cta-banner {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Nav link hit area — generous padding for easier hover/click */
+.nav-link {
+  padding: 0.875rem 0.75rem 0.5rem;
+  margin: -0.875rem -0.75rem -0.5rem;
+}
+
 /* Hover lift — card hover scale effect */
 @layer components {
   .hover-lift:hover {

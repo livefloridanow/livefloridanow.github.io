@@ -221,9 +221,9 @@ export default function Navbar() {
           style={{ maxWidth: 'var(--container-max)', paddingLeft: 'var(--container-px-mobile)', paddingRight: 'var(--container-px-mobile)', paddingTop: 'var(--space-2)', paddingBottom: 'var(--space-2)' }}
           aria-label="Main navigation"
         >
-          <a href="/" aria-label="LiveFloridaNow Home">
+          <Link href="/" aria-label="LiveFloridaNow Home" onClick={() => window.scrollTo({ top: 0 })}>
             <Logo variant="light" className="h-8 w-auto" />
-          </a>
+          </Link>
 
           {/* Desktop */}
           <ul className="hidden lg:flex items-center" style={{ gap: 'var(--space-5)' }}>
@@ -231,7 +231,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="type-label text-white/90 hover:text-white transition-colors"
+                  className="type-label text-white/90 hover:text-white transition-colors hover-underline nav-link"
                 >
                   {link.label}
                 </Link>
