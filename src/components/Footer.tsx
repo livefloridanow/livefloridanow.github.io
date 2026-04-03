@@ -19,9 +19,9 @@ export default function Footer() {
       <Container>
         {/* Top row — logo + nav */}
         <div className="flex flex-col md:flex-row items-center justify-between" style={{ gap: 'var(--space-4)', marginBottom: 'var(--space-5)' }}>
-          <Link href="/" className="footer__logo" aria-label="LiveFloridaNow Home">
+          <a href="/" className="footer__logo" aria-label="LiveFloridaNow Home">
             <Logo variant="light" className="h-7 w-auto" />
-          </Link>
+          </a>
 
           <nav className="footer__nav" aria-label="Footer navigation">
             <ul className="flex flex-wrap justify-center" style={{ columnGap: 'var(--space-4)', rowGap: 'var(--space-1)' }}>

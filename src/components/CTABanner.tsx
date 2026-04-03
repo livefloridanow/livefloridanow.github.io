@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { agent } from '@/data/agent';
 import FadeIn from './FadeIn';
 import Container from './ui/Container';
+import Button from './ui/Button';
 
 export default function CTABanner() {
   return (
@@ -34,17 +34,9 @@ export default function CTABanner() {
           </a>
         </FadeIn>
         <FadeIn delay={0.25}>
-          <Link
-            href="/contact"
-            className="cta-banner__button btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors"
-            style={{
-              padding: '1rem 2.5rem',
-              borderRadius: 'var(--radius-sm)',
-              fontWeight: 'var(--weight-medium)',
-            }}
-          >
+          <Button href="/contact" variant="primary" size="md" className="cta-banner__button">
             Get in Touch
-          </Link>
+          </Button>
         </FadeIn>
       </Container>
     </section>

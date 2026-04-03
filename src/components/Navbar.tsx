@@ -218,9 +218,9 @@ export default function Navbar() {
           className="relative max-w-7xl mx-auto flex items-center justify-between px-6 py-5"
           aria-label="Main navigation"
         >
-          <Link href="/" aria-label="LiveFloridaNow Home">
+          <a href="/" aria-label="LiveFloridaNow Home">
             <Logo variant="light" className="h-8 w-auto" />
-          </Link>
+          </a>
 
           {/* Desktop */}
           <ul className="hidden lg:flex items-center gap-10">
@@ -237,7 +237,7 @@ export default function Navbar() {
             <li>
               <Link
                 href="/contact"
-                className="btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors"
+                className="btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors cursor-pointer"
                 style={{ padding: '0.5rem 1.25rem', borderRadius: 'var(--radius-sm)', fontWeight: 'var(--weight-medium)' }}
               >
                 Let&apos;s Connect

@@ -1,8 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import { listings } from '@/data/listings';
 import ListingCard from './ListingCard';
+import Button from './ui/Button';
 import FadeIn from './FadeIn';
 import { StaggerChildren, StaggerItem } from './FadeIn';
 import Container from './ui/Container';
@@ -33,17 +33,9 @@ export default function ListingsGrid() {
         </StaggerChildren>
 
         <FadeIn className="listings__cta text-center" style={{ marginTop: 'var(--space-5)' }}>
-          <Link
-            href="/properties"
-            className="type-label inline-flex items-center justify-center bg-dark text-white hover:bg-foreground transition-colors"
-            style={{
-              padding: '0.875rem 2rem',
-              borderRadius: 'var(--radius-sm)',
-              fontWeight: 'var(--weight-medium)',
-            }}
-          >
+          <Button href="/properties" variant="secondary" size="md" className="listings__cta-button">
             View All Properties
-          </Link>
+          </Button>
         </FadeIn>
       </Container>
     </section>

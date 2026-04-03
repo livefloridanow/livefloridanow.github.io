@@ -205,40 +205,36 @@ export default function DesignSystemPage() {
           </h2>
           <div className="flex flex-wrap items-center" style={{ gap: 'var(--space-2)' }}>
             <button
-              className="btn-shimmer type-label inline-flex items-center justify-center transition-colors"
+              className="btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors"
               style={{
-                background: 'var(--color-accent)',
-                color: 'var(--color-dark)',
                 padding: '0.875rem 2rem',
                 borderRadius: 'var(--radius-sm)',
                 fontWeight: 'var(--weight-medium)',
                 border: 'none',
+                cursor: 'pointer',
               }}
             >
               Primary
             </button>
             <button
-              className="type-label inline-flex items-center justify-center transition-colors"
+              className="type-label inline-flex items-center justify-center bg-dark text-white hover:bg-dark-hover transition-colors"
               style={{
-                background: 'var(--color-dark)',
-                color: 'var(--color-background)',
                 padding: '0.875rem 2rem',
                 borderRadius: 'var(--radius-sm)',
                 fontWeight: 'var(--weight-medium)',
                 border: 'none',
+                cursor: 'pointer',
               }}
             >
               Secondary
             </button>
             <button
-              className="type-label inline-flex items-center justify-center transition-colors"
+              className="type-label inline-flex items-center justify-center border-2 border-foreground/30 text-foreground hover:bg-foreground hover:text-white transition-colors"
               style={{
-                background: 'transparent',
-                color: 'var(--color-foreground)',
                 padding: '0.875rem 2rem',
                 borderRadius: 'var(--radius-sm)',
                 fontWeight: 'var(--weight-medium)',
-                border: '1px solid var(--color-border)',
+                cursor: 'pointer',
               }}
             >
               Outline

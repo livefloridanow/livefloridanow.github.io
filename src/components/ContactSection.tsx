@@ -4,6 +4,7 @@ import { Phone, Mail, ExternalLink, Clock, MessageCircle } from 'lucide-react';
 import { agent } from '@/data/agent';
 import FadeIn from './FadeIn';
 import Container from './ui/Container';
+import Button from './ui/Button';
 
 export default function ContactSection() {
   return (
@@ -160,17 +161,9 @@ export default function ContactSection() {
                   style={{ padding: '0.875rem 1rem', borderRadius: 'var(--radius-md)' }}
                 />
               </div>
-              <button
-                type="submit"
-                className="contact__submit btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors"
-                style={{
-                  padding: '1rem 2rem',
-                  borderRadius: 'var(--radius-sm)',
-                  fontWeight: 'var(--weight-medium)',
-                }}
-              >
+              <Button type="submit" variant="primary" size="md" className="contact__submit">
                 Send Message
-              </button>
+              </Button>
             </form>
           </FadeIn>
         </div>

@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
+import Button from './ui/Button';
 
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 const EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -159,45 +159,18 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 1.6, ease: EASE }}
           style={{ marginTop: 'var(--space-3)', gap: 'var(--space-2)' }}
         >
-          <Link
-            href="/properties"
-            className="hero__cta-primary type-label inline-flex items-center justify-center transition-all duration-300"
-            style={{
-              background: 'var(--color-accent)',
-              color: 'var(--color-dark)',
-              padding: '0.875rem 2rem',
-              borderRadius: 'var(--radius-sm)',
-              width: 'fit-content',
-              fontWeight: 'var(--weight-medium)',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(184,169,138,0.85)')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = 'var(--color-accent)')}
-          >
+          <Button href="/properties" variant="primary" size="md" className="hero__cta-primary">
             View Properties
-          </Link>
-          <Link
+          </Button>
+          <Button
             href="/contact"
-            className="hero__cta-secondary type-label inline-flex items-center justify-center transition-all duration-300"
-            style={{
-              background: 'transparent',
-              color: 'var(--color-background)',
-              padding: '0.875rem 2rem',
-              borderRadius: 'var(--radius-sm)',
-              border: '1px solid rgba(250,250,248,0.70)',
-              width: 'fit-content',
-              fontWeight: 'var(--weight-medium)',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(250,250,248,0.9)';
-              e.currentTarget.style.background = 'rgba(255,255,255,0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(250,250,248,0.70)';
-              e.currentTarget.style.background = 'transparent';
-            }}
+            variant="outline"
+            size="md"
+            className="hero__cta-secondary border-white/70 text-white hover:bg-white/10 hover:text-white"
+            style={{ borderColor: 'rgba(250,250,248,0.70)' }}
           >
             Let&apos;s Talk
-          </Link>
+          </Button>
         </motion.div>
       </div>
     </section>
