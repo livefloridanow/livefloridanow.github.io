@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { agent } from '@/data/agent';
 import Logo from './Logo';
 import Button from './ui/Button';
 
@@ -103,7 +102,7 @@ function MobileMenu({
         transition={{ duration: 1.0, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Links — centered */}
-        <nav className="flex-1 flex flex-col items-center justify-center" style={{ gap: 'var(--space-4)' }}>
+        <nav className="flex-1 flex flex-col items-center justify-start overflow-y-auto" style={{ gap: 'var(--space-4)', paddingTop: 'var(--space-7)' }}>
           {mobileNavLinks.map((link, i) => (
             <motion.div
               key={link.href}
@@ -124,23 +123,6 @@ function MobileMenu({
           ))}
         </nav>
 
-        {/* Bottom — quiet contact touch */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0, transition: { duration: 0.15 } }}
-          transition={{ delay: 0.85, duration: 0.35 }}
-          style={{ paddingLeft: 'var(--space-3)', paddingRight: 'var(--space-3)', paddingBottom: 'var(--space-5)' }}
-        >
-          <div className="border-t border-white/10 text-center" style={{ paddingTop: 'var(--space-3)' }}>
-            <a
-              href={agent.phoneTel}
-              className="text-sm text-white/50 tracking-wide hover:text-white/80 transition-colors"
-            >
-              {agent.phone}
-            </a>
-          </div>
-        </motion.div>
       </motion.div>
     </>
   );
@@ -220,8 +202,8 @@ export default function Navbar() {
       <button
         ref={btnRef}
         onClick={handleToggle}
-        className="lg:hidden fixed top-0 right-0 z-59 w-8 h-8 flex items-center justify-center"
-        style={{ top: 'calc(1.25rem + 4px)', right: '1.5rem' }}
+        className="lg:hidden fixed z-59 w-10 h-10 flex items-center justify-center"
+        style={{ top: 'calc(var(--space-2) - 4px)', right: 'calc(var(--container-px-mobile) - 4px)' }}
         aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={mobileOpen}
       >
