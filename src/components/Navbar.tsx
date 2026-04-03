@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { agent } from '@/data/agent';
 import Logo from './Logo';
+import Button from './ui/Button';
 
 const mobileNavLinks = [
   { href: '/', label: 'Home' },
@@ -133,12 +134,13 @@ function MenuContent({ onClose }: { onClose: () => void }) {
       className="fixed inset-0 z-57 flex flex-col pointer-events-auto"
     >
       {/* Links — centered */}
-      <nav className="flex-1 flex flex-col items-center justify-center gap-8">
+      <nav className="flex-1 flex flex-col items-center justify-center" style={{ gap: 'var(--space-4)' }}>
         {mobileNavLinks.map((link, i) => (
           <motion.div key={link.href} custom={i} variants={linkVariants}>
             <Link
               href={link.href}
-              className="text-4xl md:text-5xl font-serif text-white hover:text-accent transition-colors duration-200 tracking-wide"
+              className="font-serif text-white hover:text-accent transition-colors duration-200"
+              style={{ fontSize: 'var(--text-4xl)', letterSpacing: 'var(--tracking-wide)' }}
               onClick={onClose}
             >
               {link.label}
@@ -148,8 +150,8 @@ function MenuContent({ onClose }: { onClose: () => void }) {
       </nav>
 
       {/* Bottom — quiet contact touch */}
-      <motion.div variants={footerVariants} className="px-6 pb-10">
-        <div className="border-t border-white/10 pt-6 text-center">
+      <motion.div variants={footerVariants} style={{ paddingLeft: 'var(--space-3)', paddingRight: 'var(--space-3)', paddingBottom: 'var(--space-5)' }}>
+        <div className="border-t border-white/10 text-center" style={{ paddingTop: 'var(--space-3)' }}>
           <a
             href={agent.phoneTel}
             className="text-sm text-white/50 tracking-wide hover:text-white/80 transition-colors"
@@ -215,7 +217,8 @@ export default function Navbar() {
         />
 
         <nav
-          className="relative max-w-7xl mx-auto flex items-center justify-between px-6 py-5"
+          className="relative mx-auto flex items-center justify-between"
+          style={{ maxWidth: 'var(--container-max)', paddingLeft: 'var(--container-px-mobile)', paddingRight: 'var(--container-px-mobile)', paddingTop: 'var(--space-2)', paddingBottom: 'var(--space-2)' }}
           aria-label="Main navigation"
         >
           <a href="/" aria-label="LiveFloridaNow Home">
@@ -223,7 +226,7 @@ export default function Navbar() {
           </a>
 
           {/* Desktop */}
-          <ul className="hidden lg:flex items-center gap-10">
+          <ul className="hidden lg:flex items-center" style={{ gap: 'var(--space-5)' }}>
             {desktopNavLinks.map((link) => (
               <li key={link.href}>
                 <Link
@@ -235,13 +238,9 @@ export default function Navbar() {
               </li>
             ))}
             <li>
-              <Link
-                href="/contact"
-                className="btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors cursor-pointer"
-                style={{ padding: '0.5rem 1.25rem', borderRadius: 'var(--radius-sm)', fontWeight: 'var(--weight-medium)' }}
-              >
+              <Button href="/contact" variant="primary" size="sm" className="navbar__cta">
                 Let&apos;s Connect
-              </Link>
+              </Button>
             </li>
           </ul>
 

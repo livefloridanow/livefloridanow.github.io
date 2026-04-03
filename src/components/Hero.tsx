@@ -115,7 +115,7 @@ export default function Hero() {
 
         {/* Headline */}
         <h1
-          className="hero__headline font-serif font-light text-left"
+          className="hero__headline type-display text-left"
           style={{
             fontSize: 'clamp(2.5rem, 8vw, var(--text-7xl))',
             lineHeight: 'var(--leading-tight)',

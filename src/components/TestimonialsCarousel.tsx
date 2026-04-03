@@ -58,15 +58,16 @@ export default function TestimonialsCarousel() {
           </AnimatePresence>
         </div>
 
-        <div className="testimonials__controls flex justify-center" style={{ gap: 10, marginTop: 'var(--space-3)' }}>
+        <div className="testimonials__controls flex justify-center" style={{ gap: 'var(--space-1)', marginTop: 'var(--space-3)' }}>
           {testimonials.map((_, i) => (
             <button
               key={i}
               onClick={() => setCurrent(i)}
               aria-label={`Go to testimonial ${i + 1}`}
-              className={`w-1.5 h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+              className={`rounded-full transition-all duration-300 cursor-pointer ${
                 i === current ? 'bg-foreground scale-125' : 'bg-foreground/20 hover:bg-foreground/40'
               }`}
+              style={{ width: 'var(--indicator-size)', height: 'var(--indicator-size)' }}
             />
           ))}
         </div>

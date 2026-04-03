@@ -11,7 +11,7 @@ export default function ListingCard({ listing }: ListingCardProps) {
   return (
     <Link href={`/properties/${listing.slug}`} className="listing-card block group">
       <div
-        className="bg-white overflow-hidden shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300 ease-out"
+        className="listing-card__inner bg-card overflow-hidden shadow-sm hover:shadow-lg hover-lift transition-all duration-300 ease-out"
         style={{ borderRadius: 'var(--radius-lg)' }}
       >
         <div className="listing-card__image relative aspect-[4/3] overflow-hidden">

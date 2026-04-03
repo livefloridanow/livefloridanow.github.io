@@ -20,7 +20,7 @@ export default function AboutSection() {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-amber-900/10 mix-blend-multiply" />
+            <div className="absolute inset-0 mix-blend-multiply" style={{ backgroundColor: 'var(--color-accent-tint)' }} />
           </div>
         </FadeIn>
 
@@ -52,7 +52,7 @@ export default function AboutSection() {
               />
               <span
                 className="absolute -top-2 font-serif leading-none select-none"
-                style={{ left: 'var(--space-2)', fontSize: 'var(--text-5xl)', color: 'rgba(184, 169, 138, 0.35)' }}
+                style={{ left: 'var(--space-2)', fontSize: 'var(--text-5xl)', color: 'var(--color-accent-subtle)' }}
                 aria-hidden="true"
               >
                 &ldquo;

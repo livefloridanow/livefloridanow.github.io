@@ -140,7 +140,7 @@ export default function ContactSection() {
                   id="contact-interest"
                   name="interest"
                   className="contact__input w-full bg-surface text-foreground border border-border focus:outline-none focus:ring-2 focus:ring-accent/50 transition-shadow appearance-none"
-                  style={{ padding: '0.875rem 2.5rem 0.875rem 1rem', borderRadius: 'var(--radius-md)', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B6860' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center' }}
+                  style={{ padding: '0.875rem 2.5rem 0.875rem 1rem', borderRadius: 'var(--radius-md)', backgroundImage: 'var(--select-caret)', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0.75rem center' }}
                 >
                   <option value="buying">Buying a Home</option>
                   <option value="selling">Selling a Home</option>
