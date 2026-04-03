@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 interface ButtonProps {
   children: React.ReactNode;
   href?: string;
-  variant?: 'primary' | 'secondary' | 'outline';
+  variant?: 'primary' | 'secondary' | 'outline' | 'outline-light';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   style?: React.CSSProperties;
@@ -12,56 +12,40 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-/*
-  Size variants (btn-sm, btn-md, btn-lg):
-    sm  → 12px font / padding 0.5rem 1.25rem  (nav bars, compact UI)
-    md  → 12px font / padding 0.875rem 2rem   (default)
-    lg  → 12px font / padding 1rem 2.5rem     (hero CTAs, large sections)
-*/
-
 export default function Button({
   children,
   href,
   variant = 'primary',
   size = 'md',
   className,
-  style: styleProp,
+  style,
   type = 'button',
   onClick,
 }: ButtonProps) {
-  const base =
-    'type-label inline-flex items-center justify-center transition-colors cursor-pointer';
   const variants = {
-    primary: 'btn-shimmer bg-accent text-white hover:bg-accent-dark',
-    secondary: 'bg-dark text-white hover:bg-dark-hover',
-    outline:
-      'border-2 border-foreground/30 text-foreground hover:bg-foreground hover:text-white',
+    primary: 'btn btn-primary btn-shimmer type-label',
+    secondary: 'btn btn-secondary type-label',
+    outline: 'btn btn-outline type-label',
+    'outline-light': 'btn btn-outline-light type-label',
   };
-  const sizeStyles: Record<string, React.CSSProperties> = {
-    sm: { padding: '0.5rem 1.25rem' },
-    md: { padding: '0.875rem 2rem' },
-    lg: { padding: '1rem 2.5rem' },
+  const sizes = {
+    sm: 'btn-sm',
+    md: 'btn-md',
+    lg: 'btn-lg',
   };
 
-  const classes = cn(base, variants[variant], className);
-
-  const mergedStyle: React.CSSProperties = {
-    borderRadius: 'var(--radius-sm)',
-    fontWeight: 'var(--weight-medium)',
-    ...sizeStyles[size],
-    ...styleProp,
-  };
+  const classes = cn(variants[variant], sizes[size], className);
 
   if (href) {
     return (
-      <Link href={href} className={classes} style={mergedStyle}>
+      <Link href={href} className={classes} style={style}>
         {children}
       </Link>
     );
   }
 
   return (
-    <button type={type} onClick={onClick} className={classes} style={mergedStyle}>
+    <button type={type} onClick={onClick} className={classes} style={style}>
       {children}
     </button>
   );

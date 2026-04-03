@@ -164,10 +164,9 @@ export default function Hero() {
           </Button>
           <Button
             href="/contact"
-            variant="outline"
+            variant="outline-light"
             size="md"
-            className="hero__cta-secondary border-white/70 text-white hover:bg-white/10 hover:text-white"
-            style={{ borderColor: 'rgba(250,250,248,0.70)' }}
+            className="hero__cta-secondary"
           >
             Let&apos;s Talk
           </Button>

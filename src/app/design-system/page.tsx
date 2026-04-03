@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Button from '@/components/ui/Button';
 
 export const metadata: Metadata = {
   title: 'Design System | LiveFloridaNow',
@@ -204,41 +205,9 @@ export default function DesignSystemPage() {
             Buttons
           </h2>
           <div className="flex flex-wrap items-center" style={{ gap: 'var(--space-2)' }}>
-            <button
-              className="btn-shimmer type-label inline-flex items-center justify-center bg-accent text-white hover:bg-accent-dark transition-colors"
-              style={{
-                padding: '0.875rem 2rem',
-                borderRadius: 'var(--radius-sm)',
-                fontWeight: 'var(--weight-medium)',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              Primary
-            </button>
-            <button
-              className="type-label inline-flex items-center justify-center bg-dark text-white hover:bg-dark-hover transition-colors"
-              style={{
-                padding: '0.875rem 2rem',
-                borderRadius: 'var(--radius-sm)',
-                fontWeight: 'var(--weight-medium)',
-                border: 'none',
-                cursor: 'pointer',
-              }}
-            >
-              Secondary
-            </button>
-            <button
-              className="type-label inline-flex items-center justify-center border-2 border-foreground/30 text-foreground hover:bg-foreground hover:text-white transition-colors"
-              style={{
-                padding: '0.875rem 2rem',
-                borderRadius: 'var(--radius-sm)',
-                fontWeight: 'var(--weight-medium)',
-                cursor: 'pointer',
-              }}
-            >
-              Outline
-            </button>
+            <Button variant="primary" size="md">Primary</Button>
+            <Button variant="secondary" size="md">Secondary</Button>
+            <Button variant="outline" size="md">Outline</Button>
           </div>
         </section>
 
