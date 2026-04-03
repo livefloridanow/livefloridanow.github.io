@@ -27,12 +27,11 @@ export default function AboutSection() {
         {/* Content */}
         <div className="about__content">
           <FadeIn>
-            <p className="about__label type-label text-muted" style={{ marginBottom: 'var(--space-2)' }}>
+            <p className="about__label type-label text-muted text-center lg:text-left" style={{ marginBottom: 'var(--space-2)' }}>
               Work With Derek
             </p>
-            <h2 className="about__heading type-h2 text-foreground" style={{ marginBottom: 'var(--space-3)' }}>
-              Real estate feels different when you&apos;re working with someone
-              who&apos;s actually involved
+            <h2 className="about__heading type-h2 text-foreground text-center lg:text-left" style={{ marginBottom: 'var(--space-3)' }}>
+              Real Estate the Way It Should Be
             </h2>
           </FadeIn>
 
